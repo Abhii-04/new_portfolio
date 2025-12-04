@@ -33,6 +33,13 @@ body {
     background: #a0b0c0;
 }
 
+/* 🔥 FIX: Allow all images to stay colored */
+img {
+    filter: none !important;
+    opacity: 1 !important;
+    transition: 0.3s ease;
+}
+
 /* Core Card Style with Interactive Glow */
 .neo-brutal-card {
     background: #111;
