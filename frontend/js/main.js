@@ -163,11 +163,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize page-level grid background
   initPageGridBackground();
   
-  // Initialize meteors for individual sections
-  const sections = document.querySelectorAll('.hero, .skills-section, .about-section, .experience-section, .projects-section, .education-section, .achievements-section, .links-section');
-  sections.forEach(section => {
-    initMeteorEffect(section);
-  });
+  // Meteor effect removed from individual sections
+  // const sections = document.querySelectorAll('.hero, .skills-section, .about-section, .experience-section, .projects-section, .education-section, .achievements-section, .links-section');
+  // sections.forEach(section => {
+  //   initMeteorEffect(section);
+  // });
   
   // Smooth scroll for anchor links with offset for sticky header
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
