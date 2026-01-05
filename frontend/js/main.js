@@ -7,14 +7,6 @@ const GRID_CONFIG = {
   repeatDelay: 1000
 };
 
-// Meteor Configuration
-const METEOR_CONFIG = {
-  count: 3,
-  minDelay: 2000,
-  maxDelay: 8000,
-  duration: 2000
-};
-
 // Initialize Page Grid Background
 function initPageGridBackground() {
   const gridBg = document.querySelector('.page-grid-background');
@@ -103,71 +95,10 @@ function initPageGridBackground() {
   }
 }
 
-// Initialize Meteor Effect for individual sections
-function initMeteorEffect(container) {
-  const meteorContainer = container.querySelector('.meteor-container');
-  if (!meteorContainer) return;
-  
-  function createMeteor() {
-    const meteor = document.createElement('div');
-    meteor.className = 'meteor';
-    
-    const startX = Math.random() * 100;
-    const startY = Math.random() * 50;
-    
-    meteor.style.left = `${startX}%`;
-    meteor.style.top = `${startY}%`;
-    meteor.style.animation = `meteor-fall ${METEOR_CONFIG.duration}ms linear`;
-    
-    meteorContainer.appendChild(meteor);
-    
-    setTimeout(() => {
-      meteor.remove();
-    }, METEOR_CONFIG.duration);
-  }
-  
-  function scheduleMeteor() {
-    createMeteor();
-    const delay = METEOR_CONFIG.minDelay + Math.random() * (METEOR_CONFIG.maxDelay - METEOR_CONFIG.minDelay);
-    setTimeout(scheduleMeteor, delay);
-  }
-  
-  for (let i = 0; i < METEOR_CONFIG.count; i++) {
-    setTimeout(scheduleMeteor, i * 1000);
-  }
-}
-
-// Theme Toggle Functionality
+// Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', function() {
-  const themeToggle = document.getElementById('themeToggle');
-  const html = document.documentElement;
-  
-  // Check for saved theme preference or default to light
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    html.classList.add('dark');
-  }
-  
-  // Toggle theme on button click
-  themeToggle.addEventListener('click', function() {
-    html.classList.toggle('dark');
-    
-    // Save preference to localStorage
-    if (html.classList.contains('dark')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-  });
-  
   // Initialize page-level grid background
   initPageGridBackground();
-  
-  // Meteor effect removed from individual sections
-  // const sections = document.querySelectorAll('.hero, .skills-section, .about-section, .experience-section, .projects-section, .education-section, .achievements-section, .links-section');
-  // sections.forEach(section => {
-  //   initMeteorEffect(section);
-  // });
   
   // Smooth scroll for anchor links with offset for sticky header
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
