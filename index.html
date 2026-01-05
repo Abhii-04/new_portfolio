@@ -1,252 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>ABHISHEK_YADAV</title>
-
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind config (keeps your theme customizations) -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                        sans: ['"Space Grotesk"', 'sans-serif'],
-                    },
-                    colors: {
-                        'tech-grey': '#a0b0c0',
-                        'void': '#050505',
-                        'surface': '#111111',
-                        'border': '#333333'
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)",
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Link external CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Abhishek Yadav - Frontend Software Engineer</title>
+  <meta name="description" content="Frontend Software Engineer specializing in React, Flutter, and API integrations. B.Tech in Computer Science and Engineering from UPES.">
+  <meta name="author" content="Abhishek Yadav">
+  <meta property="og:title" content="Abhishek Yadav | Frontend Software Engineer">
+  <meta property="og:description" content="Frontend Software Engineer specializing in React, Flutter, and API integrations.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="selection:bg-tech-grey selection:text-black">
-    <div class="noise"></div>
-    <!-- Background Grid -->
-    <div class="fixed inset-0 grid-bg bg-grid-pattern opacity-20 pointer-events-none -z-10"></div>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-content">
+      <h1 class="logo">Portfolio</h1>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <div class="toggle-thumb">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </svg>
+          </div>
+        </button>
+        <a href="#links" class="btn-contact">Get in Touch</a>
+      </div>
+    </div>
+  </header>
 
-    <main class="max-w-[1600px] mx-auto p-4 md:p-8 min-h-screen">
-        <!-- Header / Status Bar -->
-        <header class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-border pb-4">
-            <div>
-                <h1 class="text-4xl md:text-6xl font-bold font-sans tracking-tighter uppercase leading-none">
-                    Abhishek<br>
-                    <span class="text-tech-grey">Yadav</span>
-                </h1>
-                <div class="mt-2 font-mono text-xs md:text-sm text-gray-500 flex gap-4 flex-wrap">
-                    <span><span class="text-tech-grey">ID:</span> DEV_001</span>
-                    <span><span class="text-tech-grey">LOC:</span> INDIA</span>
-                    <span><span class="text-tech-grey">STATUS:</span> <span class="animate-pulse text-tech-grey glitch-text-hover flicker">ONLINE</span></span>
-                </div>
-            </div>
+  <!-- Main Content -->
+  <main class="container main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="avatar">
+        <img src="pfp.jpeg" alt="Abhishek Yadav">
+      </div>
+      <div class="hero-info">
+        <h1 class="hero-name">Abhishek</h1>
+        <p class="hero-title">Backend Developer</p>
+        <a href="mailto:abhi740000@gmail.com" class="hero-email">abhi740000@gmail.com</a>
+      </div>
+    </section>
 
-            <div class="flex items-end gap-6 mt-4 md:mt-0">
-                <div class="w-24 h-24 md:w-36 md:h-36 overflow-hidden relative border-2 border-tech-grey bg-surface shadow-md shadow-tech-grey/20">
-                    <!-- PASTE YOUR BASE64 IMAGE DATA HERE if needed -->
-                    <img
-                        src="./mee.jpeg"
-                        alt="Abhishek Yadav profile photo"
-                        class="w-full h-full object-cover grayscale contrast-150 opacity-90 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
-                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/111/a0b0c0?text=IMAGE%20LOAD%20FAIL';"
-                    />
-                    <span class="absolute bottom-1 right-1 font-mono text-[10px] text-tech-grey px-1 py-[1px] bg-void/70 backdrop-blur-sm border border-tech-grey/50 leading-none">FACE_ID</span>
-                </div>
+    <!-- Skills Section -->
+    <section class="skills-section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+          <span>React</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter">
+          <span>Flutter</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+          <span>JavaScript</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
+          <span>TypeScript</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML/CSS">
+          <span>HTML/CSS</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+          <span>Bootstrap</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+          <span>PostgreSQL</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+          <span>MySQL</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+          <span>MongoDB</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+          <span>Python</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask">
+          <span>Flask</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+          <span>Git</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+          <span>Docker</span>
+        </div>
+      </div>
+    </section>
 
-                <div class="hidden md:block text-right font-mono text-xs text-gray-500 mb-1">
-                    <div id="clock">00:00:00</div>
-                    <div class="flicker">SYSTEM.READY</div>
-                </div>
-            </div>
-        </header>
+    <!-- About Section -->
+    <section class="about-section">
+      <h2 class="section-title">About</h2>
+      <p class="about-text">
+        I'm Abhishek Yadav, a Computer Science student at UPES and a Frontend Software Engineer specializing in API Integrations. I have experience building responsive UIs with Flutter and React, and I'm passionate about creating seamless financial dashboards and workflows. I've also worked as a Freelance Web Developer, delivering modular frontend components and automating workflows for SMEs.
+      </p>
+    </section>
 
-        <!-- Bento Grid Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 grid-rows-auto">
+    <!-- Experience Section -->
+    <section class="experience-section">
+      <h2 class="section-title">Experience</h2>
+      <div class="experience-list">
+        <div class="experience-item">
+          <div class="experience-header">
+            <h3 class="experience-role">FullStack Intern — Naiyo24</h3>
+            <span class="experience-date">June – Sept 2025</span>
+          </div>
+          <p class="experience-description">Frontend Engineering & Accounting API Integrations (Flutter, React, PostgreSQL)</p>
+          <ul class="experience-bullets">
+            <li>Developed responsive Flutter and React UIs for financial dashboards and workflows.</li>
+            <li>Implemented integration tests and contributed to unit testing for API reliability.</li>
+            <li>Optimized frontend performance and implemented secure session handling for accounting transactions.</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
+            <h3 class="experience-role">Freelance Web Developer</h3>
+            <span class="experience-date">2024 – Present</span>
+          </div>
+          <p class="experience-description">Modular Frontend & Workflow Automation</p>
+          <ul class="experience-bullets">
+            <li>Delivered responsive web apps for SMEs, improving workflow automation and engagement.</li>
+            <li>Built modular frontend components with JavaScript (ES6+) and TypeScript.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            <!-- Hero / Bio -->
-            <div class="neo-brutal-card col-span-1 md:col-span-4 lg:col-span-4 p-8 flex flex-col justify-between min-h-[300px]">
-                <div class="flex justify-between items-start">
-                    <span class="font-mono text-xs text-gray-500 border border-border px-2 py-1 rounded-sm">01 // INTRODUCE_SELF</span>
-                    <i data-lucide="terminal" class="text-tech-grey w-6 h-6"></i>
-                </div>
-                <div>
-                    <h2 class="text-2xl md:text-4xl font-sans font-medium leading-tight mb-4">
-                        
-                        <span class="text-gray-400">Fullstack AI Engineer.</span>
-                    </h2>
-                    <p class="font-mono text-sm text-gray-400 max-w-2xl leading-relaxed">
-                        Compiling code into reality. Specializing in high-performance Web Apps, API Integrations, and Custom Compiler Design. Bridging the gap between low-level logic and pixel-perfect UIs.
-                    </p>
-                </div>
-                <div class="mt-6 flex flex-wrap gap-4">
-                    <a href="mailto:abhi740000@gmail.com" class="border-2 border-tech-grey text-tech-grey bg-transparent font-bold font-mono text-sm px-6 py-3 hover:bg-tech-grey hover:text-black transition-colors flex items-center gap-2 glitch-text-hover">
-                        INITIALIZE_CONTACT <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                    <a href="Abhishek_resume.pdf" target="_blank" class="border border-border text-white font-mono text-sm px-6 py-3 hover:border-tech-grey hover:text-tech-grey transition-colors glitch-text-hover">
-                        DOWNLOAD_DATA (CV)
-                    </a>
-                </div>
-            </div>
-
-            <!-- Social / Links -->
-            <div class="neo-brutal-card col-span-1 md:col-span-2 lg:col-span-2 p-6 flex flex-col justify-between">
-                <span class="font-mono text-xs text-gray-500 border border-border px-2 py-1 rounded-sm w-fit">02 // SECURE_LINKS</span>
-                <div class="space-y-4 mt-8">
-                    <a href="https://github.com/Abhii-04" target="_blank" class="flex items-center justify-between group p-3 border border-border hover:bg-surface hover:border-tech-grey transition-all">
-                        <span class="font-mono text-sm group-hover:text-tech-grey glitch-text-hover">GITHUB_04</span>
-                        <i data-lucide="github" class="w-4 h-4 text-gray-500 group-hover:text-tech-grey"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/abhishek-yadav" target="_blank" class="flex items-center justify-between group p-3 border border-border hover:bg-surface hover:border-tech-grey transition-all">
-                        <span class="font-mono text-sm group-hover:text-tech-grey glitch-text-hover">LINKEDIN_PROFILE</span>
-                        <i data-lucide="linkedin" class="w-4 h-4 text-gray-500 group-hover:text-tech-grey"></i>
-                    </a>
-                    <a href="mailto:abhi740000@gmail.com" class="flex items-center justify-between group p-3 border border-border hover:bg-surface hover:border-tech-grey transition-all">
-                        <span class="font-mono text-sm group-hover:text-tech-grey glitch-text-hover">MAIL_ADDRESS</span>
-                        <i data-lucide="mail" class="w-4 h-4 text-gray-500 group-hover:text-tech-grey"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Skills Marquee -->
-            <div class="col-span-1 md:col-span-4 lg:col-span-6 p-0 border border-tech-grey bg-void/50 shadow-tech-grey/50">
-                <div class="marquee-container w-full font-mono font-bold text-lg md:text-xl uppercase tracking-widest text-tech-grey py-3">
-                    <div class="marquee-content">
-                        [ SYSTEM_STATUS: OPERATIONAL ] &gt; React /// Flutter /// C++ /// LLVM /// Python /// Flask /// PostgreSQL /// Docker /// TypeScript /// API Integration /// Next.js /// Tailwind /// [ SYSTEM_STATUS: OPERATIONAL ] &gt; React /// Flutter /// C++ /// LLVM /// Python /// Flask /// PostgreSQL /// Docker /// TypeScript /// API Integration /// Next.js /// Tailwind
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience 1 -->
-            <div class="neo-brutal-card col-span-1 md:col-span-2 lg:col-span-3 p-6 flex flex-col h-full">
-                <div class="flex justify-between items-start mb-6 border-b border-border pb-3">
-                    <div class="flex flex-col">
-                        <span class="text-tech-grey font-mono text-xs mb-1">JUNE 2025 - SEPT 2025</span>
-                        <h3 class="text-xl font-sans font-bold">Naiyo24</h3>
-                        <span class="text-gray-400 font-mono text-sm">FullStack Intern</span>
-                    </div>
-                    <i data-lucide="briefcase" class="text-gray-600"></i>
-                </div>
-                <ul class="text-gray-400 text-sm font-mono space-y-3 leading-relaxed list-none">
-                    <li class="flex gap-2"><span class="text-tech-grey">//</span> Developed responsive Flutter & React UIs for financial dashboards.</li>
-                    <li class="flex gap-2"><span class="text-tech-grey">//</span> Implemented integration tests and secure session handling.</li>
-                    <li class="flex gap-2"><span class="text-tech-grey">//</span> Optimized frontend performance for critical accounting transactions.</li>
-                </ul>
-            </div>
-
-            <!-- Experience 2 -->
-            <div class="neo-brutal-card col-span-1 md:col-span-2 lg:col-span-3 p-6 flex flex-col h-full">
-                <div class="flex justify-between items-start mb-6 border-b border-border pb-3">
-                    <div class="flex flex-col">
-                        <span class="text-tech-grey font-mono text-xs mb-1">2024 - 2025</span>
-                        <h3 class="text-xl font-sans font-bold">Freelance</h3>
-                        <span class="text-gray-400 font-mono text-sm">Web Developer</span>
-                    </div>
-                    <i data-lucide="globe" class="text-gray-600"></i>
-                </div>
-                <ul class="text-gray-400 text-sm font-mono space-y-3 leading-relaxed list-none">
-                    <li class="flex gap-2"><span class="text-tech-grey">//</span> Delivered responsive web apps for SMEs.</li>
-                    <li class="flex gap-2"><span class="text-tech-grey">//</span> Improved workflow automation and client engagement.</li>
-                    <li class="flex gap-2"><span class="text-tech-grey">//</span> Built modular components using TypeScript for scalability.</li>
-                </ul>
-            </div>
-
-            <!-- Projects Container (Dynamically populated by JS) -->
-            <div id="projects-container" class="contents"></div>
-
-            <!-- Buttons -->
-            <div class="col-span-1 md:col-span-4 lg:col-span-6 flex justify-center gap-4 mt-4 flex-wrap">
-                <button id="view-more-button" onclick="loadMoreProjects()" class="border-2 border-tech-grey text-tech-grey bg-transparent font-bold font-mono text-sm px-8 py-4 hover:bg-tech-grey hover:text-black transition-colors flex items-center gap-2 glitch-text-hover shadow-lg shadow-tech-grey/30" style="display: none;"></button>
-
-                <button id="show-less-button" onclick="showLessProjects()" class="border border-border text-gray-400 bg-transparent font-bold font-mono text-sm px-8 py-4 hover:border-tech-grey hover:text-tech-grey transition-colors flex items-center gap-2 glitch-text-hover" style="display: none;">
-                    SHOW_LESS_DATA <i data-lucide="arrow-up" class="w-4 h-4"></i>
-                </button>
-
-                <a id="github-link-final" href="https://github.com/Abhii-04" target="_blank" class="border-2 border-green-500 text-green-500 bg-transparent font-bold font-mono text-sm px-8 py-4 hover:bg-green-500 hover:text-black transition-colors flex items-center gap-2 glitch-text-hover" style="display: none;">
-                    VIEW_ALL_REPOS ON GITHUB <i data-lucide="github" class="w-4 h-4"></i>
-                </a>
-            </div>
-
-            <!-- Tech Stack -->
-            <div class="neo-brutal-card col-span-1 md:col-span-4 lg:col-span-4 p-8">
-                 <span class="font-mono text-xs text-gray-500 border border-border px-2 py-1 rounded-sm">04 // SYSTEM ARCHITECTURE</span>
-                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-8">
-                     <div>
-                         <h4 class="text-tech-grey font-mono text-sm mb-3 underline decoration-dotted underline-offset-4">FRONTEND</h4>
-                         <ul class="text-gray-400 text-sm font-mono space-y-1">
-                             <li>React.js</li>
-                             <li>Flutter</li>
-                             <li>TypeScript</li>
-                             <li>Tailwind</li>
-                         </ul>
-                     </div>
-                     <div>
-                         <h4 class="text-tech-grey font-mono text-sm mb-3 underline decoration-dotted underline-offset-4">BACKEND</h4>
-                         <ul class="text-gray-400 text-sm font-mono space-y-1">
-                             <li>Python (Flask)</li>
-                             <li>REST APIs</li>
-                             <li>PostgreSQL</li>
-                             <li>MySQL</li>
-                         </ul>
-                     </div>
-                     <div>
-                         <h4 class="text-tech-grey font-mono text-sm mb-3 underline decoration-dotted underline-offset-4">LOW_LEVEL</h4>
-                         <ul class="text-gray-400 text-sm font-mono space-y-1">
-                             <li>C++</li>
-                             <li>LLVM</li>
-                             <li>Compiler Design</li>
-                             <li>Systems Prog</li>
-                         </ul>
-                     </div>
-                     <div>
-                         <h4 class="text-tech-grey font-mono text-sm mb-3 underline decoration-dotted underline-offset-4">DEVOPS</h4>
-                         <ul class="text-gray-400 text-sm font-mono space-y-1">
-                             <li>Docker</li>
-                             <li>Git / GitHub</li>
-                             <li>Slack API</li>
-                             <li>Linux</li>
-                         </ul>
-                     </div>
-                 </div>
-            </div>
-
-            <!-- Status / Footer Card -->
-            <div class="neo-brutal-card col-span-1 md:col-span-2 lg:col-span-2 p-8 flex flex-col justify-center items-center text-center">
-                <div class="w-3 h-3 bg-tech-grey rounded-full animate-ping mb-4 shadow-xl shadow-tech-grey/50"></div>
-                <p class="font-mono text-sm text-gray-400 mb-2">OPEN FOR OPPORTUNITIES</p>
-                <a href="mailto:abhi740000@gmail.com" class="text-xl font-bold font-sans text-white hover:text-tech-grey transition-colors glitch-text-hover">HIRE_ME()</a>
-            </div>
-
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-list">
+        <div class="project-item">
+          <span class="project-year">2024</span>
+          <div class="project-content">
+            <h3 class="project-name">CPU Compiler</h3>
+            <p class="project-description">
+              <ul>
+                <li>Link: <a href="https://github.com/Abhii-04/Custom-CPU" target="_blank">https://github.com/Abhii-04/Custom-CPU</a> </li>
+                <li>Developed a compiler that translates high-level language into custom CPU bytecode.</li>
+                <li>Implemented lexical analysis and parsing using recursive descent parsing.</li>
+                <li>Optimized code with constant folding and register allocation.</li>
+                <li>Applied backend concepts and data structures to improve execution efficiency.</li>
+              </ul>
+            <div class="project-tech">C++, LLVM</div>
+          </div>
+        </div>
+        <div class="project-item">
+          <span class="project-year">2024</span>
+          <div class="project-content">
+            <h3 class="project-name">Forencify— Data Integration Dashboard</h3>
+            <p class="project-description">
+              <ul>
+                <li>Link: <a href="https://github.com/Abhii-04/Forensify" target="_blank">https://github.com/Abhii-04/Forensify</a></li>
+                <li>Built a unified dashboard to integrate fragmented data across Instagram, WhatsApp, and Reddit. Automated metadata extraction & mapping, reducing manual reconciliation effort. Designed a scalable architecture for handling large volumes of integration data efficiently.</li>
+                
+              </ul>
+            <div class="project-tech">Flask,praw,Tweepy, Python</div>
+          </div>
+        </div>
+        
+        <div class="project-item">
+          <span class="project-year">2025</span>
+          <div class="project-content">
+            <h3 class="project-name">UAV Based Real-Time Crowd Detection System</h3>
+            <p class="project-description">
+              <ul>
+                <li>Deployed a FastAPI backend using Uvicorn (ASGI)</li>
+                <li>Optimized YOLO-based ONNX models for parallel inference</li>
+                <li>Implemented MJPEG live video streaming</li>
+                <li>Configured environment-driven deployment</li>
+              </ul>
+            <div class="project-tech">FastAPI, Uvicorn, ONNX, OpenCV, Python</div>
+          </div>
         </div>
 
-        <footer class="mt-12 text-center border-t border-border pt-8 pb-4">
-             <p class="font-mono text-xs text-gray-600">
-                 SYSTEM_VERSION: 2.6.0 // © <span id="current-year"></span> ABHISHEK YADAV // ALL RIGHTS RESERVED
-             </p>
-        </footer>
-    </main>
+      </div>
+    </section>
 
-    <!-- Link external JS -->
-    <script src="script.js"></script>
+    <!-- Education Section -->
+    <section class="education-section">
+      <h1 class="section-title">Education</h1>
+      <div class="education-list">
+        <div class="education-item">
+          <div class="education-header">
+            <h3 class="education-degree">B.Tech in Computer Science and Engineering (Fullstack AI)</h3>
+            <span class="education-date">2022 – 2026</span>
+          </div>
+          <p class="education-school">University of Petroleum and Energy Studies (UPES), Dehradun</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements-section">
+      <h2 class="section-title">Achievements</h2>
+      <ul class="achievements-list">
+        <li><strong>Open Source Contributor</strong> — Actively contributed to GitHub repositories under open collaboration initiatives, focusing on frontend and backend issue resolutions.</li>
+        <li><strong>Core Committee Member — CSI (2023)</strong>: Organized a college-level hackathon and contributed to the technical team, including development of the hackathon website frontend.</li>
+      </ul>
+    </section>
+
+    <!-- Links Section -->
+    <section class="links-section" id="links">
+      <h2 class="section-title">Links</h2>
+      <div class="links-grid">
+        <a href="https://github.com/Abhii-04" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="Github">
+          </div>
+          <div class="social-info">
+            <span class="social-name">Github</span>
+            <span class="social-handle">@Abhii-04</span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/abhishek-yadav-a965a6317/" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+          </div>
+          <div class="social-info">
+            <span class="social-name">LinkedIn</span>
+            <span class="social-handle">abhishek-yadav</span>
+          </div>
+        </a>
+
+        <a href="mailto:abhi740000@gmail.com" class="social-card">
+          <div class="social-icon">
+            <img src="https://www.svgrepo.com/show/349378/gmail.svg" alt="E-Mail">
+          </div>
+          <div class="social-info">
+            <span class="social-name">E-Mail</span>
+            <span class="social-handle">abhi740000@gmail.com</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
 </body>
 </html>
