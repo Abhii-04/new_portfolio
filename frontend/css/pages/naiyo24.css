@@ -1,0 +1,881 @@
+/* =====================================================
+   NAIYO24 PAGE STYLES
+   A modern, sleek design for the internship showcase
+   ===================================================== */
+
+/* Color Palette */
+:root {
+  --naiyo-primary: #6366f1;
+  --naiyo-primary-light: #818cf8;
+  --naiyo-primary-dark: #4f46e5;
+  --naiyo-primary-glow: rgba(99, 102, 241, 0.4);
+  --naiyo-accent: #22d3ee;
+  --naiyo-accent-glow: rgba(34, 211, 238, 0.3);
+  --naiyo-gradient-start: #6366f1;
+  --naiyo-gradient-end: #a855f7;
+  --naiyo-surface: rgba(15, 15, 15, 0.8);
+  --naiyo-surface-light: rgba(30, 30, 30, 0.6);
+  --naiyo-glass: rgba(255, 255, 255, 0.03);
+  --naiyo-glass-border: rgba(255, 255, 255, 0.08);
+  --naiyo-text-primary: #f1f5f9;
+  --naiyo-text-secondary: #94a3b8;
+  --naiyo-text-muted: #64748b;
+}
+
+/* =====================================================
+   PAGE LAYOUT
+   ===================================================== */
+
+.naiyo-page {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Background */
+.naiyo-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.naiyo-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(ellipse at 20% 20%, var(--naiyo-primary-glow) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, var(--naiyo-accent-glow) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 60%);
+  animation: bgFloat 20s ease-in-out infinite;
+}
+
+@keyframes bgFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(2%, 2%) rotate(1deg); }
+  66% { transform: translate(-1%, 1%) rotate(-1deg); }
+}
+
+/* Grain texture overlay */
+.naiyo-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+.naiyo-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid var(--naiyo-glass-border);
+  transition: all 0.3s ease;
+}
+
+.naiyo-nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.naiyo-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--naiyo-glass);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 100px;
+  color: var(--naiyo-text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.naiyo-back-btn:hover {
+  background: var(--naiyo-primary);
+  border-color: var(--naiyo-primary);
+  transform: translateX(-4px);
+  box-shadow: 0 0 30px var(--naiyo-primary-glow);
+}
+
+.naiyo-back-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.naiyo-back-btn:hover svg {
+  transform: translateX(-3px);
+}
+
+.naiyo-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--naiyo-text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* =====================================================
+   HERO SECTION
+   ===================================================== */
+
+.naiyo-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+}
+
+.naiyo-hero-content {
+  max-width: 900px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating badge */
+.naiyo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--naiyo-glass) 0%, transparent 100%);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 100px;
+  margin-bottom: 2rem;
+  animation: badgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.naiyo-badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+}
+
+.naiyo-badge-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--naiyo-text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Main title */
+.naiyo-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--naiyo-gradient-start) 0%, var(--naiyo-gradient-end) 50%, var(--naiyo-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% { filter: drop-shadow(0 0 20px var(--naiyo-primary-glow)); }
+  100% { filter: drop-shadow(0 0 40px var(--naiyo-primary-glow)); }
+}
+
+.naiyo-subtitle {
+  font-size: 1.25rem;
+  color: var(--naiyo-text-secondary);
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+/* Meta info cards */
+.naiyo-meta-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.naiyo-meta-card {
+  padding: 1.25rem 2rem;
+  background: var(--naiyo-surface);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.naiyo-meta-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--naiyo-primary);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--naiyo-primary-glow);
+}
+
+.naiyo-meta-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--naiyo-primary-light);
+  margin-bottom: 0.375rem;
+}
+
+.naiyo-meta-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--naiyo-text-primary);
+}
+
+/* Scroll indicator */
+.naiyo-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--naiyo-text-muted);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+.naiyo-scroll-indicator span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* =====================================================
+   MAIN CONTENT CONTAINER
+   ===================================================== */
+
+.naiyo-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+
+/* =====================================================
+   STATS SECTION
+   ===================================================== */
+
+.naiyo-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.naiyo-stat-card {
+  position: relative;
+  padding: 2rem;
+  background: var(--naiyo-surface);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.naiyo-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--naiyo-primary), var(--naiyo-accent));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.naiyo-stat-card:hover {
+  transform: translateY(-8px);
+  border-color: transparent;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 1px var(--naiyo-primary),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.naiyo-stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.naiyo-stat-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--naiyo-primary) 0%, var(--naiyo-primary-dark) 100%);
+  border-radius: 14px;
+  color: white;
+  box-shadow: 0 10px 30px var(--naiyo-primary-glow);
+}
+
+.naiyo-stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--naiyo-text-primary) 0%, var(--naiyo-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.naiyo-stat-label {
+  font-size: 0.875rem;
+  color: var(--naiyo-text-muted);
+  font-weight: 500;
+}
+
+/* =====================================================
+   SECTION STYLES
+   ===================================================== */
+
+.naiyo-section {
+  margin-bottom: 4rem;
+}
+
+.naiyo-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.naiyo-section-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--naiyo-primary) 0%, var(--naiyo-gradient-end) 100%);
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 8px 24px var(--naiyo-primary-glow);
+}
+
+.naiyo-section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--naiyo-text-primary);
+}
+
+/* =====================================================
+   CONTRIBUTIONS GRID
+   ===================================================== */
+
+.naiyo-contributions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.naiyo-contribution-card {
+  position: relative;
+  padding: 2rem;
+  background: var(--naiyo-surface);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.naiyo-contribution-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--naiyo-primary), var(--naiyo-accent));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.naiyo-contribution-card:hover {
+  transform: translateX(8px);
+  border-color: var(--naiyo-glass-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.naiyo-contribution-card:hover::before {
+  opacity: 1;
+}
+
+.naiyo-contribution-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--naiyo-glass);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 12px;
+  color: var(--naiyo-primary-light);
+  margin-bottom: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.naiyo-contribution-card:hover .naiyo-contribution-icon {
+  background: linear-gradient(135deg, var(--naiyo-primary) 0%, var(--naiyo-gradient-end) 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 8px 24px var(--naiyo-primary-glow);
+}
+
+.naiyo-contribution-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--naiyo-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.naiyo-contribution-text {
+  font-size: 0.95rem;
+  color: var(--naiyo-text-secondary);
+  line-height: 1.7;
+}
+
+/* =====================================================
+   TECH STACK
+   ===================================================== */
+
+.naiyo-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.naiyo-tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  background: var(--naiyo-surface);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.naiyo-tech-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--naiyo-primary);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    0 0 0 1px var(--naiyo-primary),
+    0 0 30px var(--naiyo-primary-glow);
+}
+
+.naiyo-tech-item img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.naiyo-tech-item span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--naiyo-text-primary);
+}
+
+/* =====================================================
+   PROJECT HIGHLIGHTS
+   ===================================================== */
+
+.naiyo-project-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2.5rem;
+  background: var(--naiyo-surface);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 24px;
+}
+
+.naiyo-project-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--naiyo-glass) 0%, transparent 100%);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.naiyo-project-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, var(--naiyo-primary-glow) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, var(--naiyo-accent-glow) 0%, transparent 50%);
+  opacity: 0.5;
+}
+
+.naiyo-project-visual img {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.naiyo-project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.naiyo-detail-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--naiyo-glass);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.naiyo-detail-item:hover {
+  border-color: var(--naiyo-primary);
+  transform: translateX(4px);
+}
+
+.naiyo-detail-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--naiyo-primary) 0%, var(--naiyo-gradient-end) 100%);
+  border-radius: 10px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.naiyo-detail-content h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--naiyo-text-primary);
+  margin-bottom: 0.375rem;
+}
+
+.naiyo-detail-content p {
+  font-size: 0.9rem;
+  color: var(--naiyo-text-secondary);
+  line-height: 1.6;
+}
+
+/* =====================================================
+   SKILLS & LEARNING
+   ===================================================== */
+
+.naiyo-skills-card {
+  padding: 2.5rem;
+  background: var(--naiyo-surface);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 24px;
+}
+
+.naiyo-skills-intro {
+  font-size: 1.05rem;
+  color: var(--naiyo-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.naiyo-skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.naiyo-skills-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--naiyo-glass);
+  border: 1px solid var(--naiyo-glass-border);
+  border-radius: 12px;
+  color: var(--naiyo-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.naiyo-skills-list li:hover {
+  border-color: var(--naiyo-primary);
+  background: linear-gradient(135deg, var(--naiyo-glass) 0%, rgba(99, 102, 241, 0.1) 100%);
+  transform: translateX(4px);
+}
+
+.naiyo-skills-list li::before {
+  content: '✦';
+  color: var(--naiyo-primary-light);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   FOOTER CTA
+   ===================================================== */
+
+.naiyo-footer-cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+}
+
+.naiyo-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--naiyo-primary) 0%, var(--naiyo-gradient-end) 100%);
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 40px var(--naiyo-primary-glow);
+}
+
+.naiyo-cta-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 20px 60px var(--naiyo-primary-glow),
+    0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.naiyo-cta-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.naiyo-cta-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* =====================================================
+   PAGE FOOTER
+   ===================================================== */
+
+.naiyo-page-footer {
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--naiyo-glass-border);
+  background: var(--naiyo-surface);
+}
+
+.naiyo-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--naiyo-text-muted);
+  font-size: 0.875rem;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 1024px) {
+  .naiyo-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .naiyo-contributions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .naiyo-project-showcase {
+    grid-template-columns: 1fr;
+  }
+  
+  .naiyo-skills-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .naiyo-nav {
+    padding: 1rem;
+  }
+  
+  .naiyo-hero {
+    padding: 6rem 1.5rem 3rem;
+    min-height: auto;
+  }
+  
+  .naiyo-content {
+    padding: 0 1.5rem 4rem;
+  }
+  
+  .naiyo-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .naiyo-stat-card {
+    padding: 1.5rem;
+  }
+  
+  .naiyo-stat-value {
+    font-size: 2rem;
+  }
+  
+  .naiyo-meta-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .naiyo-meta-card {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .naiyo-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .naiyo-contribution-card {
+    padding: 1.5rem;
+  }
+  
+  .naiyo-project-showcase {
+    padding: 1.5rem;
+  }
+  
+  .naiyo-skills-card {
+    padding: 1.5rem;
+  }
+  
+  .naiyo-tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .naiyo-footer-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .naiyo-scroll-indicator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .naiyo-title {
+    font-size: 2.5rem;
+  }
+  
+  .naiyo-subtitle {
+    font-size: 1rem;
+  }
+  
+  .naiyo-tech-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .naiyo-back-btn span {
+    display: none;
+  }
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.naiyo-hero-content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.naiyo-stats {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.naiyo-section {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+/* Staggered animations for children */
+.naiyo-stat-card:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.1s both; }
+.naiyo-stat-card:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.2s both; }
+.naiyo-stat-card:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.3s both; }
+.naiyo-stat-card:nth-child(4) { animation: fadeInUp 0.6s ease-out 0.4s both; }
+
+.naiyo-contribution-card:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.1s both; }
+.naiyo-contribution-card:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.15s both; }
+.naiyo-contribution-card:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.2s both; }
+.naiyo-contribution-card:nth-child(4) { animation: fadeInUp 0.6s ease-out 0.25s both; }
+.naiyo-contribution-card:nth-child(5) { animation: fadeInUp 0.6s ease-out 0.3s both; }
+.naiyo-contribution-card:nth-child(6) { animation: fadeInUp 0.6s ease-out 0.35s both; }

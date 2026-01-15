@@ -1,20 +1,44 @@
 import express from 'express';
+import session from 'express-session';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import pageRoutes from './Routes/pageroutes.js';
+import dotenv from 'dotenv';
+import {dirname} from 'path';
+import {fileURLToPath} from 'url';
+import cookieParser from 'cookie-parser';
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname=dirname(__filename);
+const app = express();
+app.set("views", path.join(__dirname, "../frontend/templates"));
 
-// Serve static files from frontend directory
-app.use('/css', express.static(path.join(__dirname, '../frontend/css')));
-app.use('/js', express.static(path.join(__dirname, '../frontend/js')));
-app.use('/assets', express.static(path.join(__dirname, '../frontend/assets')));
 
-// Use page routes
+app.use(cookieParser());
+app.use(express.json());
+const PORT = process.env.PORT || 5000;
+
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET_KEY,
+        resave:false,
+        saveUnintialized:false,
+        cookie:{
+            secure:false,  //set to true if using https
+            httponly:true,
+            sameSite:'lax',
+            maxAge:1000*60*60*24  //set for 1 day
+        },
+    })
+);
+
+
+
+//middleware
+app.use(express.static(path.join(__dirname,'../frontend')));
+
+// Import routes
+import pageRoutes from './Routes/pageroutes.js';
 app.use('/', pageRoutes);
 
 app.listen(PORT, () => {

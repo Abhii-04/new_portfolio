@@ -374,24 +374,34 @@ h1, h2, h3, h4, h5, h6 {
 
 .avatar {
   position: relative;
-  height: 120px;
-  width: 120px;
-  overflow: hidden;
+  height: 140px;
+  width: 140px;
   border-radius: 999px;
-  border: 3px solid var(--accent);
   flex-shrink: 0;
-  box-shadow: 0 8px 24px var(--card-shadow);
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .avatar:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .avatar img {
+  position: relative;
+  z-index: 1;
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 999px;
+  border: 3px solid var(--accent);
+  box-shadow: 0 8px 24px var(--card-shadow);
+  transition: all 0.4s ease;
+}
+
+.avatar:hover img {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2),
+              0 0 20px rgba(16, 185, 129, 0.4),
+              0 8px 24px var(--card-shadow);
 }
 
 .hero-info {
@@ -588,6 +598,88 @@ h1, h2, h3, h4, h5, h6 {
 
 .experience-bullets li {
   margin-bottom: 0.5rem;
+}
+
+/* Button Styles */
+.card-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+.btn-card {
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: linear-gradient(135deg, var(--muted) 0%, var(--skill-bg) 100%);
+  color: var(--foreground);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(107, 114, 128, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-card:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--card-shadow);
+}
+
+.btn-card:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px var(--card-shadow);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.25);
+}
+
+.btn-primary::before {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent) 100%);
+  border-color: var(--accent-hover);
+  box-shadow: 0 8px 24px rgba(107, 114, 128, 0.35);
+  transform: translateY(-3px);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(107, 114, 128, 0.3);
 }
 
 /* Projects Section */
