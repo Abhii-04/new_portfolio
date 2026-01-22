@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, observerOptions);
 
   // Observe all major sections
-  document.querySelectorAll('.hero, .skills-section, .about-section, .experience-section, .projects-section, .education-section, .achievements-section, .links-section').forEach(section => {
+  document.querySelectorAll('.hero, .skills-section, .experience-section, .projects-section, .education-section, .achievements-section, .links-section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
