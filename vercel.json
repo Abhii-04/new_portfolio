@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/naiyo24", "destination": "/naiyo24.html" },
+    { "source": "/", "destination": "/index.html" }
+  ]
+}
