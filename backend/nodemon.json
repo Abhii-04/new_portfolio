@@ -1,5 +1,0 @@
-{
-  "watch": ["server.js", "Routes"],
-  "ext": "js,mjs,cjs,json",
-  "ignore": ["env/**", "node_modules/**"]
-}
