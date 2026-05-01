@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/naiyo24",
+      "destination": "/templates/naiyo24.html"
+    }
+  ]
+}
