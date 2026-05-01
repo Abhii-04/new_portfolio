@@ -2,38 +2,30 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-
-
 const __filename=fileURLToPath(import.meta.url);
 const __dirname=path.dirname(__filename);
+const templatesRoot = path.join(__dirname, '../../frontend/templates');
 
 const router = express.Router();
 
-router.get('/',(req,res)=>{
-    try{
-        res.sendFile(path.join(__dirname, '../../frontend/templates/index.html'));
-    }catch(err){
-        res.status(500).send('Error loading page');
-        console.error(err);
-    }
-})
+function sendTemplate(res, filename) {
+    const filePath = path.join(templatesRoot, filename);
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.error(`Error loading template ${filename}:`, err);
+            if (!res.headersSent) {
+                res.status(err.statusCode || 500).send('Error loading page');
+            }
+        }
+    });
+}
 
-router.get('/naiyo24',(req,res)=>{
-    try{
-        res.sendFile(path.join(__dirname, '../../frontend/templates/naiyo24.html'));
-    }catch(err){
-        res.status(500).send('Error loading page');
-        console.error(err);
-    }
-})
-//PROJECTS ROUTES
-router.get('/Forensify',(req,res)=>{
-    try{
-        res.sendFile(path.join(__dirname, '../../frontend/templates/Forensify.html'));
-    }catch(err){
-        res.status(500).send('Error loading page');
-        console.error(err);
-    }
-})
+router.get('/', (req, res) => {
+    sendTemplate(res, 'index.html');
+});
+
+router.get('/naiyo24', (req, res) => {
+    sendTemplate(res, 'naiyo24.html');
+});
 
 export default router;
