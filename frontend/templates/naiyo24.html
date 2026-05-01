@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naiyo24 Internship | Abhishek Yadav</title>
+    <meta
+      name="description"
+      content="Details about my internship at Naiyo24 across Interior Design Website, BHUUK, and EdQuest."
+    />
+    <meta name="author" content="Abhishek Yadav" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .project-item-split {
+        align-items: stretch;
+      }
+
+      .project-item-split .project-content {
+        flex: 1 1 0;
+      }
+
+      .project-visual {
+        flex: 1 1 0;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem;
+        background: linear-gradient(135deg, var(--muted) 0%, var(--skill-bg) 100%);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      .project-visual img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: calc(var(--radius) - 4px);
+      }
+
+      @media (max-width: 900px) {
+        .project-item-split {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-grid-background"></div>
+
+    <header class="header">
+      <div class="container header-content">
+        <h1 class="logo" onclick="window.location.href='/'" style="cursor: pointer;">~/</h1>
+        <div class="header-actions">
+          <a href="/" class="btn-contact">Back to Home</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main-content">
+      <section class="hero">
+        <div class="hero-info">
+          <h1 class="hero-name">Naiyo24 Internship</h1>
+          <p class="hero-title">Fullstack Intern</p>
+          <div class="hero-description">
+            <p class="about-text">
+              At Naiyo24, I contributed across three shipped products spanning
+              backend engineering, Flutter integration, schema design, and
+              access control. My work focused on building dependable user
+              flows, connecting frontend experiences with backend systems, and
+              supporting product decisions in domains with real operational
+              constraints.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-section">
+        <h2 class="section-title">Projects Worked On</h2>
+        <div class="projects-list">
+          <div class="project-item">
+            <div class="project-content">
+              <h3 class="project-name">Interior Design Website</h3>
+              <p class="project-description">
+                Backend contribution for an interior-design platform built with
+                Flask, PostgreSQL, and Flask templates, with emphasis on access
+                control and data structure.
+              </p>
+              <ul class="experience-bullets">
+                <li>Contributed to the backend stack using Flask and PostgreSQL for a fullstack interior-design platform.</li>
+                <li>Implemented authentication flows to secure user access and support reliable account-based interactions.</li>
+                <li>Worked on authorization logic for protected routes and role-sensitive actions across the application.</li>
+                <li>Contributed to schema design for users and application data to keep workflows structured and maintainable.</li>
+                <li>Supported backend functionality consumed by Flask template-based frontend pages.</li>
+                <li>Helped align user actions, stored data, and server-side business logic for more consistent application behavior.</li>
+              </ul>
+              <div class="project-tech">Flask, PostgreSQL, Flask Templates</div>
+            </div>
+          </div>
+
+          <div class="project-item project-item-split">
+            <div class="project-content">
+              <h3 class="project-name">BHUUK</h3>
+              <p class="project-description">
+                A food and liquor delivery app for West Bengal where I worked
+                across Flutter frontend implementation and backend integration
+                for a compliance-sensitive delivery workflow.
+              </p>
+              <ul class="experience-bullets">
+                <li>Worked on the frontend and integration team to support core user flows for a regulated food and liquor delivery product.</li>
+                <li>Contributed to Flutter-based screens and application flows with focus on usability and backend connectivity.</li>
+                <li>Integrated frontend components with Flask APIs to ensure reliable communication between app state and server responses.</li>
+                <li>Worked with PostgreSQL-backed data handling during integration tasks to support order and user-related workflows.</li>
+                <li>Suggested introducing Aadhaar KYC to the lead developer as a practical identity and age-verification step for the domain.</li>
+                <li>Helped improve product flow for a compliance-sensitive delivery use case where trust, validation, and user experience all mattered.</li>
+              </ul>
+              <div class="project-tech">Flutter, Flask, PostgreSQL</div>
+            </div>
+            <div class="project-visual">
+              <img
+                src="assets/images/bhukk.png"
+                alt="BHUUK product poster"
+              />
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-content">
+              <h3 class="project-name">EdQuest</h3>
+              <p class="project-description">
+                An education platform for school and college students where my
+                role mirrored BHUUK, combining Flutter frontend work with
+                backend integration responsibilities.
+              </p>
+              <ul class="experience-bullets">
+                <li>Worked on the frontend and integration team, applying the same cross-functional role I held on BHUUK.</li>
+                <li>Contributed to Flutter frontend flows for student-facing features across school and college-oriented use cases.</li>
+                <li>Integrated frontend components with Flask backend APIs to keep application workflows connected and responsive.</li>
+                <li>Worked with PostgreSQL-backed data flows supporting core platform features and user interactions.</li>
+                <li>Helped maintain dependable frontend to backend communication across multiple screens and actions.</li>
+                <li>Supported a product experience designed for different learner segments while keeping implementation practical and consistent.</li>
+              </ul>
+              <div class="project-tech">Flutter, Flask, PostgreSQL</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience-section">
+        <h2 class="section-title">Certificate</h2>
+        <div class="experience-list">
+          <div class="experience-item">
+            <div
+              class="project-image-placeholder"
+              style="width: 100%; aspect-ratio: 16/10; background: var(--muted); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);"
+            >
+              <iframe
+                src="/assets/images/Naiyo_certificate.pdf"
+                title="Naiyo24 Internship Certificate"
+                width="100%"
+                height="100%"
+                style="border: none;"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
