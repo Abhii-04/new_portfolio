@@ -594,15 +594,9 @@ h1, h2, h3, h4, h5, h6 {
   gap: 1rem;
 }
 
-.project-label {
-  align-self: flex-start;
-  padding: 0.45rem 0.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 0.75rem;
-  font-weight: 700;
+.project-heading {
+  display: flex;
+  align-items: flex-start;
 }
 
 .project-name {
