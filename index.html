@@ -38,21 +38,57 @@
     <main class="container main-content">
       <!-- Hero Section -->
       <section class="hero">
-        <div class="avatar">
-          <img src="assets/images/pfp.jpeg" alt="Abhishek Yadav" />
+        <div class="hero-banner">
+          <img
+            src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1600&q=80"
+            alt="Temporary intro banner"
+          />
+          <p class="hero-quote">You make your own luck if you stay at it long enough.</p>
         </div>
-        <div class="hero-info">
-          <h1 class="hero-name">Abhishek Yadav</h1>
-          <p class="hero-title">Fullstack + AI Systems Engineer</p>
-          <a href="mailto:abhi740000@gmail.com" class="hero-email">abhi740000@gmail.com</a>
-          <div class="hero-description">
-            <p class="about-text">
-              I'm Abhishek Yadav, a Computer Science and Engineering student at
-              UPES focused on fullstack development and applied AI systems.
-              I build production-ready web applications, backend APIs, admin
-              dashboards, and real-time inference pipelines with an emphasis on
-              reliability, security, and practical deployment.
-            </p>
+
+        <div class="hero-panel">
+          <div class="avatar">
+            <img src="assets/images/pfp.jpeg" alt="Abhishek Yadav" />
+          </div>
+
+          <div class="hero-info">
+            <div class="hero-topline">
+              <div>
+                <h1 class="hero-name">Abhishek Yadav</h1>
+                <p class="hero-meta">CSE Student • Fullstack Developer • AI Systems Builder</p>
+              </div>
+              <div class="hero-links">
+                <a href="https://github.com/Abhii-04" target="_blank" rel="noopener noreferrer" class="hero-icon-link" aria-label="GitHub">GH</a>
+                <a href="https://www.linkedin.com/in/abhishek-yadav" target="_blank" rel="noopener noreferrer" class="hero-icon-link" aria-label="LinkedIn">in</a>
+                <a href="mailto:abhi740000@gmail.com" class="hero-icon-link" aria-label="Email">@</a>
+              </div>
+            </div>
+
+            <p class="hero-title">I build from zero to shipped systems.</p>
+            <a href="mailto:abhi740000@gmail.com" class="hero-email">abhi740000@gmail.com</a>
+
+            <div class="hero-divider"></div>
+
+            <div class="hero-summary">
+              <p class="about-text">
+                I'm Abhishek Yadav, a Computer Science and Engineering student at
+                UPES focused on fullstack development and applied AI systems.
+                I build production-ready web applications, backend APIs, admin
+                dashboards, and real-time inference pipelines with an emphasis on
+                reliability, security, and practical deployment.
+              </p>
+            </div>
+
+            <div class="hero-mini-stats">
+              <div class="hero-mini-stat">
+                <span class="hero-mini-value">Fullstack</span>
+                <span class="hero-mini-label">Frontend, backend, infra-minded implementation</span>
+              </div>
+              <div class="hero-mini-stat">
+                <span class="hero-mini-value">Applied AI</span>
+                <span class="hero-mini-label">Inference pipelines, NLP systems, computer vision work</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -206,7 +242,7 @@
               </li>
             </ul>
             <div class="card-actions">
-              <button class="btn-card btn-primary" onclick="window.location.href='/naiyo24'">Read More</button>
+              <button class="btn-card btn-primary" onclick="window.location.href='/naiyo24/'">Read More</button>
             </div>
           </div>
           <div class="experience-item">
@@ -267,7 +303,13 @@
                 <li>Shipped a production-ready storefront connected to real operational tooling.</li>
               </ul>
               <div class="project-footer">
-                <div class="project-tech">Node.js, Express, Supabase, better-auth, Razorpay</div>
+                <div class="project-stack" aria-label="Technology stack">
+                  <span class="project-stack-tag">Node.js</span>
+                  <span class="project-stack-tag">Express</span>
+                  <span class="project-stack-tag">Supabase</span>
+                  <span class="project-stack-tag">better-auth</span>
+                  <span class="project-stack-tag">Razorpay</span>
+                </div>
                 <div class="card-actions">
                   <a href="https://zafloraperfumes.com" target="_blank" rel="noopener noreferrer" class="btn-card">Live Site</a>
                 </div>
@@ -302,7 +344,14 @@
                 <li>Focused on practical signal quality instead of one-shot classification alone.</li>
               </ul>
               <div class="project-footer">
-                <div class="project-tech">Flask, Next.js, PyTorch, NLP, Docker, HuggingFace</div>
+                <div class="project-stack" aria-label="Technology stack">
+                  <span class="project-stack-tag">Flask</span>
+                  <span class="project-stack-tag">Next.js</span>
+                  <span class="project-stack-tag">PyTorch</span>
+                  <span class="project-stack-tag">NLP</span>
+                  <span class="project-stack-tag">Docker</span>
+                  <span class="project-stack-tag">HuggingFace</span>
+                </div>
               </div>
             </div>
           </article>
@@ -334,7 +383,13 @@
                 <li>Architected the pipeline to reduce frame loss under sustained live input.</li>
               </ul>
               <div class="project-footer">
-                <div class="project-tech">FastAPI, WebSockets, ONNX Runtime, OpenCV, YOLO</div>
+                <div class="project-stack" aria-label="Technology stack">
+                  <span class="project-stack-tag">FastAPI</span>
+                  <span class="project-stack-tag">WebSockets</span>
+                  <span class="project-stack-tag">ONNX Runtime</span>
+                  <span class="project-stack-tag">OpenCV</span>
+                  <span class="project-stack-tag">YOLO</span>
+                </div>
               </div>
             </div>
           </article>
