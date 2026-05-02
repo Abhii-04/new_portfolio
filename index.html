@@ -240,83 +240,101 @@
       <section class="projects-section" id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-list">
-          <div class="project-item">
+          <article class="project-item">
             <div class="project-content">
-              <h3 class="project-name">ZaFlora — Full Stack E-Commerce Platform</h3>
-              <p class="project-description">Production-ready commerce platform with payments, authentication, and admin workflows.</p>
-              <ul>
-                <li>
-                  Built a production-ready e-commerce platform with secure
-                  authentication, payments, and scalable backend APIs.
-                </li>
-                <li>
-                  Developed admin and user workflows for managing products,
-                  users, and orders.
-                </li>
-                <li>
-                  Integrated Razorpay payment gateway with secure transaction
-                  handling.
-                </li>
-                <li>
-                  Designed efficient database interactions and API flows to
-                  ensure consistent performance and reliable handling of user
-                  and order data.
-                </li>
+              <span class="project-label">Web App, Payments, Admin</span>
+              <h3 class="project-name">ZaFlora</h3>
+              <p class="project-description">
+                Built the commerce stack end-to-end for a live perfume brand,
+                covering storefront experience, authentication, checkout, and
+                admin workflows with a focus on secure payments and dependable
+                operations.
+              </p>
+              <div class="project-metrics">
+                <div class="project-metric">
+                  <span class="project-metric-value">End-to-End</span>
+                  <span class="project-metric-label">Built catalog, checkout, auth, and admin flows in one system.</span>
+                </div>
+                <div class="project-metric">
+                  <span class="project-metric-value">Live Payments</span>
+                  <span class="project-metric-label">Integrated Razorpay with reliable transaction handling.</span>
+                </div>
+              </div>
+              <ul class="project-points">
+                <li>Designed scalable backend APIs and database flows for products, users, and orders.</li>
+                <li>Implemented secure authentication and role-aware admin workflows.</li>
+                <li>Shipped a production-ready storefront connected to real operational tooling.</li>
               </ul>
-              <div class="project-tech">Node.js, Express, Supabase, better-auth, Razorpay</div>
-              <div class="card-actions">
-                <a href="https://zafloraperfumes.com" target="_blank" rel="noopener noreferrer" class="btn-card">Live Site</a>
+              <div class="project-footer">
+                <div class="project-tech">Node.js, Express, Supabase, better-auth, Razorpay</div>
+                <div class="card-actions">
+                  <a href="https://zafloraperfumes.com" target="_blank" rel="noopener noreferrer" class="btn-card">Live Site</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="project-item">
-            <div class="project-content">
-              <h3 class="project-name">TruthLens — Real-Time Fake News Detection System</h3>
-              <p class="project-description">AI-assisted misinformation detection pipeline with live inference and NLP validation.</p>
-              <ul>
-                <li>
-                  Developed an AI system achieving 95% accuracy using a
-                  custom-trained LSTM model.
-                </li>
-                <li>
-                  Built an NLP pipeline with spaCy NER, semantic similarity,
-                  and multi-source validation.
-                </li>
-                <li>
-                  Deployed model inference via Docker on HuggingFace for
-                  real-time predictions.
-                </li>
-              </ul>
-              <div class="project-tech">Flask, Next.js, PyTorch, NLP, Docker, HuggingFace</div>
-            </div>
-          </div>
+          </article>
 
-          <div class="project-item">
+          <article class="project-item">
             <div class="project-content">
-              <h3 class="project-name">Real-Time Video Intelligence System</h3>
-              <p class="project-description">Low-latency streaming and inference pipeline for live computer vision workloads.</p>
-              <ul>
-                <li>
-                  Engineered a low-latency real-time video analytics pipeline
-                  using WebSockets, enabling continuous frame streaming and
-                  non-blocking inference.
-                </li>
-                <li>
-                  Deployed a YOLO model optimized with ONNX Runtime for
-                  efficient object detection, integrating preprocessing and
-                  real-time bounding box rendering via OpenCV.
-                </li>
-                <li>
-                  Architected a scalable stream-to-inference pipeline ensuring
-                  high throughput, minimal latency, and seamless processing of
-                  live video feeds without frame loss.
-                </li>
+              <span class="project-label">AI, NLP, Inference</span>
+              <h3 class="project-name">TruthLens</h3>
+              <p class="project-subtitle">Real-Time Fake News Detection Pipeline</p>
+              <p class="project-description">
+                Developed an AI-assisted misinformation analysis system that
+                combines model inference, entity-aware NLP, and multi-source
+                validation to support fast, higher-confidence decisions.
+              </p>
+              <div class="project-metrics">
+                <div class="project-metric">
+                  <span class="project-metric-value">95%</span>
+                  <span class="project-metric-label">Model accuracy achieved with a custom-trained LSTM pipeline.</span>
+                </div>
+                <div class="project-metric">
+                  <span class="project-metric-value">Real-Time</span>
+                  <span class="project-metric-label">Inference deployed for live prediction rather than offline-only analysis.</span>
+                </div>
+              </div>
+              <ul class="project-points">
+                <li>Combined spaCy NER, semantic similarity, and source validation in one workflow.</li>
+                <li>Containerized inference with Docker and deployed the model for responsive predictions.</li>
+                <li>Focused on practical signal quality instead of one-shot classification alone.</li>
               </ul>
-              <div class="project-tech">
-                FastAPI, WebSockets, ONNX Runtime, OpenCV, YOLO
+              <div class="project-footer">
+                <div class="project-tech">Flask, Next.js, PyTorch, NLP, Docker, HuggingFace</div>
               </div>
             </div>
-          </div>
+          </article>
+
+          <article class="project-item">
+            <div class="project-content">
+              <span class="project-label">Computer Vision, Streaming</span>
+              <h3 class="project-name">Building a Low-Latency Video Intelligence Pipeline</h3>
+              <p class="project-description">
+                Engineered a stream-to-inference system for live computer
+                vision workloads, optimized around sustained throughput, low
+                latency, and stable detection output across continuous video
+                feeds.
+              </p>
+              <div class="project-metrics">
+                <div class="project-metric">
+                  <span class="project-metric-value">Low Latency</span>
+                  <span class="project-metric-label">Kept frame streaming and inference non-blocking across the pipeline.</span>
+                </div>
+                <div class="project-metric">
+                  <span class="project-metric-value">Live Detection</span>
+                  <span class="project-metric-label">Rendered real-time predictions with optimized ONNX-based object detection.</span>
+                </div>
+              </div>
+              <ul class="project-points">
+                <li>Used WebSockets for continuous frame transfer without breaking interaction flow.</li>
+                <li>Integrated YOLO, ONNX Runtime, and OpenCV for efficient detection and rendering.</li>
+                <li>Architected the pipeline to reduce frame loss under sustained live input.</li>
+              </ul>
+              <div class="project-footer">
+                <div class="project-tech">FastAPI, WebSockets, ONNX Runtime, OpenCV, YOLO</div>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
