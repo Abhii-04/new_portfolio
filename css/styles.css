@@ -202,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Main Content */
 .main-content {
-  padding-top: 4rem;
+  padding-top: 1rem;
   padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
@@ -224,7 +224,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-banner {
   position: relative;
-  height: 280px;
+  height: 300px;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -1031,7 +1031,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .main-content {
-    padding-top: 2.5rem;
+    padding-top: 0.75rem;
     padding-bottom: 2.5rem;
     gap: 2.5rem;
   }
@@ -1041,7 +1041,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-banner {
-    height: 220px;
+    height: 250px;
   }
 
   .hero-quote {

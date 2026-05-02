@@ -141,18 +141,4 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(section);
   });
 
-  // Add parallax effect to hero background
-  window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-      const scrolled = window.pageYOffset;
-      const heroTop = hero.offsetTop;
-      const heroHeight = hero.offsetHeight;
-      
-      if (scrolled < heroTop + heroHeight) {
-        const parallaxSpeed = 0.3;
-        hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-      }
-    }
-  });
 });
