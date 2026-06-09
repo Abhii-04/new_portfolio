@@ -95,10 +95,23 @@ function initPageGridBackground() {
   }
 }
 
+function initExperienceToggles() {
+  document.querySelectorAll('.experience-toggle').forEach(toggle => {
+    const item = toggle.closest('.experience-item');
+    if (!item) return;
+
+    toggle.addEventListener('click', () => {
+      const isCollapsed = item.classList.toggle('is-collapsed');
+      toggle.setAttribute('aria-expanded', String(!isCollapsed));
+    });
+  });
+}
+
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize page-level grid background
   initPageGridBackground();
+  initExperienceToggles();
   
   // Smooth scroll for anchor links with offset for sticky header
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -134,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, observerOptions);
 
   // Observe all major sections
-  document.querySelectorAll('.hero, .skills-section, .experience-section, .projects-section, .education-section, .achievements-section, .links-section').forEach(section => {
+  document.querySelectorAll('.hero, .skills-section, .experience-section, .projects-section, .education-section, .links-section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

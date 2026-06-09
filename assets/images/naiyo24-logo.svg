@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+  <title id="title">Naiyo24 logo</title>
+  <circle cx="80" cy="80" r="80" fill="#000000"/>
+  <path
+    d="M50 108C44 82 54 57 74 51C89 46 102 54 103 70C104 91 87 110 72 105C58 100 59 78 76 65C91 54 107 53 120 58"
+    fill="none"
+    stroke="#d8d8d8"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="125" cy="55" r="7" fill="#d8d8d8"/>
+</svg>
