@@ -108,6 +108,21 @@ function initExperienceToggles() {
 }
 
 const GITHUB_PROJECTS_URL = 'https://api.github.com/users/Abhii-04/repos?per_page=100&sort=updated&type=owner';
+const FEATURED_PROJECTS = [
+  {
+    name: 'ZaFlora',
+    description: 'ZaFlora perfume storefront.',
+    homepage: 'https://zafloraperfumes.com'
+  }
+];
+const PINNED_GITHUB_PROJECT_NAMES = ['Custom-CPU'];
+const EXCLUDED_PROJECT_NAMES = new Set([
+  'Abhii-04',
+  'Rag-Agent',
+  'new_portfolio',
+  ...PINNED_GITHUB_PROJECT_NAMES
+]);
+const PROJECT_LIMIT = 4;
 
 function createProjectCard(repo) {
   const article = document.createElement('article');
@@ -147,14 +162,16 @@ function createProjectCard(repo) {
     links.appendChild(homepage);
   }
 
-  const github = document.createElement('a');
-  github.href = repo.html_url;
-  github.target = '_blank';
-  github.rel = 'noreferrer';
-  github.className = 'project-circle-btn';
-  github.setAttribute('aria-label', `Open ${repo.name} on GitHub`);
-  github.innerHTML = '<i class="fa-brands fa-github"></i>';
-  links.appendChild(github);
+  if (repo.html_url) {
+    const github = document.createElement('a');
+    github.href = repo.html_url;
+    github.target = '_blank';
+    github.rel = 'noreferrer';
+    github.className = 'project-circle-btn';
+    github.setAttribute('aria-label', `Open ${repo.name} on GitHub`);
+    github.innerHTML = '<i class="fa-brands fa-github"></i>';
+    links.appendChild(github);
+  }
 
   top.append(titleWrap, links);
 
@@ -184,14 +201,22 @@ async function initGitHubProjects() {
     }
 
     const repos = await response.json();
+    const pinnedProjects = PINNED_GITHUB_PROJECT_NAMES
+      .map(name => repos.find(repo => repo.name === name))
+      .filter(Boolean);
+
     const projects = repos.filter(repo => (
       !repo.fork &&
       !repo.archived &&
       repo.size > 0 &&
-      repo.name !== 'Abhii-04'
-    )).slice(0, 4);
+      !EXCLUDED_PROJECT_NAMES.has(repo.name)
+    )).slice(0, PROJECT_LIMIT - FEATURED_PROJECTS.length - pinnedProjects.length);
 
-    grid.replaceChildren(...projects.map(createProjectCard));
+    grid.replaceChildren(...[
+      ...FEATURED_PROJECTS,
+      ...pinnedProjects,
+      ...projects
+    ].map(createProjectCard));
   } catch (error) {
     grid.replaceChildren();
 
