@@ -107,11 +107,117 @@ function initExperienceToggles() {
   });
 }
 
+const GITHUB_PROJECTS_URL = 'https://api.github.com/users/Abhii-04/repos?per_page=100&sort=updated&type=owner';
+
+function createProjectCard(repo) {
+  const article = document.createElement('article');
+  article.className = 'project-card';
+
+  const body = document.createElement('div');
+  body.className = 'project-card-body';
+
+  const top = document.createElement('div');
+  top.className = 'project-card-top';
+
+  const titleWrap = document.createElement('div');
+  titleWrap.className = 'project-title-wrap';
+
+  const mark = document.createElement('div');
+  mark.className = 'project-repo-mark';
+  mark.setAttribute('aria-hidden', 'true');
+  mark.textContent = repo.name.slice(0, 2).toUpperCase();
+
+  const title = document.createElement('h3');
+  title.className = 'project-card-title';
+  title.textContent = repo.name;
+
+  titleWrap.append(mark, title);
+
+  const links = document.createElement('div');
+  links.className = 'project-card-links';
+
+  if (repo.homepage) {
+    const homepage = document.createElement('a');
+    homepage.href = repo.homepage;
+    homepage.target = '_blank';
+    homepage.rel = 'noreferrer';
+    homepage.className = 'project-circle-btn';
+    homepage.setAttribute('aria-label', `Open ${repo.name} live site`);
+    homepage.innerHTML = '<i class="fa-solid fa-globe"></i>';
+    links.appendChild(homepage);
+  }
+
+  const github = document.createElement('a');
+  github.href = repo.html_url;
+  github.target = '_blank';
+  github.rel = 'noreferrer';
+  github.className = 'project-circle-btn';
+  github.setAttribute('aria-label', `Open ${repo.name} on GitHub`);
+  github.innerHTML = '<i class="fa-brands fa-github"></i>';
+  links.appendChild(github);
+
+  top.append(titleWrap, links);
+
+  const description = document.createElement('p');
+  description.className = 'project-card-description';
+  description.textContent = repo.description || 'No GitHub description provided.';
+
+  body.append(top, description);
+  article.appendChild(body);
+
+  return article;
+}
+
+async function initGitHubProjects() {
+  const grid = document.querySelector('#github-projects');
+  if (!grid) return;
+
+  try {
+    const response = await fetch(GITHUB_PROJECTS_URL, {
+      headers: {
+        Accept: 'application/vnd.github+json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`GitHub API responded with ${response.status}`);
+    }
+
+    const repos = await response.json();
+    const projects = repos.filter(repo => (
+      !repo.fork &&
+      !repo.archived &&
+      repo.size > 0 &&
+      repo.name !== 'Abhii-04'
+    )).slice(0, 4);
+
+    grid.replaceChildren(...projects.map(createProjectCard));
+  } catch (error) {
+    grid.replaceChildren();
+
+    const message = document.createElement('p');
+    message.className = 'projects-loading projects-error';
+    message.textContent = 'Could not load GitHub projects right now. Visit GitHub for the current repository list.';
+
+    const link = document.createElement('a');
+    link.href = 'https://github.com/Abhii-04?tab=repositories';
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+    link.textContent = 'Open GitHub repositories';
+
+    message.append(' ', link);
+    grid.appendChild(message);
+
+    console.error(error);
+  }
+}
+
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize page-level grid background
   initPageGridBackground();
   initExperienceToggles();
+  initGitHubProjects();
   
   // Smooth scroll for anchor links with offset for sticky header
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

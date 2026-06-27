@@ -552,59 +552,6 @@ img {
   font-size: 0.94rem;
 }
 
-.project-card-bottom {
-  margin-top: 1rem;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.project-live {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-
-  padding: 0.45rem 0.8rem;
-
-  border-radius: 999px;
-
-  background: #ecfdf3;
-
-  color: #1d9b52;
-
-  font-size: 0.78rem;
-
-  font-weight: 700;
-}
-
-.live-dot {
-  width: 8px;
-  height: 8px;
-
-  background: #1d9b52;
-
-  border-radius: 50%;
-}
-
-.project-mini-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
-.project-mini-stack span {
-  padding: 0.38rem 0.7rem;
-
-  border-radius: 999px;
-
-  background: #f5f5f5;
-
-  font-size: 0.76rem;
-
-  font-weight: 600;
-}
-
 /* ACHIEVEMENTS */
 
 .achievements-grid {
@@ -672,12 +619,6 @@ img {
 
   .hero-name {
     font-size: 2.3rem;
-  }
-
-  .project-card-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
   }
 
 }
@@ -871,6 +812,10 @@ body {
   align-items: flex-start;
 }
 
+.education-item {
+  margin-top: 1rem;
+}
+
 .experience-logo {
   width: 48px;
   height: 48px;
@@ -1019,6 +964,20 @@ body {
   gap: 1rem;
 }
 
+.projects-loading {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--foreground-muted);
+  text-align: center;
+}
+
+.projects-error a {
+  color: #18181b;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
 .project-card {
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -1044,6 +1003,32 @@ body {
 
 .project-card-body {
   padding: 1rem;
+  min-height: 100%;
+}
+
+.project-card-top {
+  align-items: flex-start;
+}
+
+.project-title-wrap {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-repo-mark {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: #f4f4f5;
+  color: #18181b;
+  font-size: 0.74rem;
+  font-weight: 800;
 }
 
 .project-card-title {
@@ -1051,6 +1036,7 @@ body {
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
 }
 
 .project-circle-btn {
@@ -1064,27 +1050,6 @@ body {
   color: var(--foreground-muted);
   line-height: 1.65;
   font-size: 0.9rem;
-}
-
-.project-card-bottom {
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.project-live {
-  padding: 0;
-  background: transparent;
-  color: #16a34a;
-  font-size: 0.8rem;
-}
-
-.project-mini-stack span {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: #fafafa;
-  color: #3f3f46;
-  font-size: 0.72rem;
 }
 
 .achievements-grid {
